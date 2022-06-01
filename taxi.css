@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Taxi Fare</title>
+    <link rel="stylesheet" href="taxi_styling.css">
+</head>
+<body>
+<form onsubmit="return false">
+    <div class="taxi-fare">
+        <h2 class="heading">Taxi Fare Calculator</h2>
+        <label>
+            <input id="miles" type="text" placeholder="0" value="">
+        </label>
+        <button type="submit" onclick="Calculate()">CALCULATE</button>
+    </div>
+    <div>
+        <input type="reset" value="RESET">
+    </div>
+    <div class="cost"><br>
+        <p>Taxi Fare Cost</p>
+        <div id="cost-display"></div>
+    </div>
+</form>
+</body>
+<script>
+    function Calculate() {
+        let miles_covered = document.getElementById("miles").value;
+        let meters_covered = parseInt(miles_covered) * 1610;
+        let constant = meters_covered / 400;
+        let fare_calc = (constant * 0.25) + 4;
+        let fare_calc1 = fare_calc.toFixed(2)
+        document.getElementById("cost-display").innerHTML = ("$") + fare_calc1.toString();
+    }
+</script>
+</html>
+
+.taxi-fare
+{
+    justify-content: center;
+    align-content: center;
+}
